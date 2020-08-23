@@ -22,7 +22,7 @@ cv2.imshow("Image", img)
 cv2. imshow("Edges", edges)
 cv2. imshow("color", color)
 cv2.imshow("Cartoon", cartoon)
-cv2.imwrite("rat1.jpg",img)              #saving cartoon image in same folder
+cv2.imwrite("rat1.jpg",cartoon)              #saving cartoon image in same folder
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 

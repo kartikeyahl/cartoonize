@@ -19,8 +19,8 @@ cartoon = cv2.bitwise_and(color, color, mask=edges)  #image masking(applying alg
 
 # 6) display
 cv2.imshow("Image", img)
-cv2. imshow("Edges", edges)
-cv2. imshow("color", color)
+#cv2. imshow("Edges", edges)
+#cv2. imshow("color", color)
 cv2.imshow("Cartoon", cartoon)
 cv2.imwrite("rat1.jpg",cartoon)              #saving cartoon image in same folder
 cv2.waitKey(0)

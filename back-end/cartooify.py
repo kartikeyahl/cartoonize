@@ -5,7 +5,7 @@ import tensorflow as tf
 import network
 import guided_filter
 from tqdm import tqdm
-
+from IPython.display import Image
 
 def resize_crop(image):
     h, w, c = np.shape(image)
@@ -19,7 +19,6 @@ def resize_crop(image):
     h, w = (h//8)*8, (w//8)*8
     image = image[:h, :w, :]
     return image
-    
 
 def cartoonize(load_folder, save_folder, model_path):
     input_photo = tf.placeholder(tf.float32, [1, None, None, 3])
@@ -52,16 +51,16 @@ def cartoonize(load_folder, save_folder, model_path):
         except:
             print('cartoonize {} failed'.format(load_path))
 
+img=cv2.imread("rdj.jpg")           #endpoint-1(reading image which user uploaded)
 
-    
+cv2.imwrite('/content/test_images/rdj.jpg',img)      #endpoint-2(storing image in test folder)
 
-if __name__ == '__main__':
-    model_path = 'saved_models'
-    load_folder = 'test_images'
-    save_folder = 'cartoonized_images'
-    if not os.path.exists(save_folder):
-        os.mkdir(save_folder)
-    cartoonize(load_folder, save_folder, model_path)
-    
+model_path='saved_models'
+load_folder='test_images'
+save_folder='cartoonized images'
 
-    
+if not os.path.exists(save_folder):
+  os.mkdir(save_folder)
+cartoonize(load_folder, save_folder, model_path)
+
+Image("cartoonized images/rdj.jpg")
